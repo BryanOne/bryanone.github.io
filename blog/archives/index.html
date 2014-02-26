@@ -9,8 +9,8 @@
   <meta name="author" content="Bryan">
 
   
-  <meta name="description" content=" Blog Archive 2014 开篇
-Feb 26 2014 posted in Personal Recent Posts 开篇 ">
+  <meta name="description" content="Blog Archive 2014 开篇
+Feb 26 2014 posted in Personal Recent Posts 开篇 GitHub Repos Status updating... @kobe9009 on GitHub $(document).ready(function &hellip;">
   
 
   <!-- http://t.co/dKP3o1e -->
@@ -109,6 +109,35 @@ Feb 26 2014 posted in Personal Recent Posts 开篇 ">
       </li>
     
   </ul>
+</section>
+
+<section>
+  <h1>GitHub Repos</h1>
+  <ul id="gh_repos">
+    <li class="loading">Status updating...</li>
+  </ul>
+  
+  <a href="https://github.com/kobe9009">@kobe9009</a> on GitHub
+  
+  <script type="text/javascript">
+    $(document).ready(function(){
+        if (!window.jXHR){
+            var jxhr = document.createElement('script');
+            jxhr.type = 'text/javascript';
+            jxhr.src = '/javascripts/libs/jXHR.js';
+            var s = document.getElementsByTagName('script')[0];
+            s.parentNode.insertBefore(jxhr, s);
+        }
+
+        github.showRepos({
+            user: 'kobe9009',
+            count: 0,
+            skip_forks: true,
+            target: '#gh_repos'
+        });
+    });
+  </script>
+  <script src="/javascripts/github.js" type="text/javascript"> </script>
 </section>
 
 
