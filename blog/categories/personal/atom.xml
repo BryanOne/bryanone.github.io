@@ -4,7 +4,7 @@
   <title><![CDATA[Category: Personal | Bryan's Blog]]></title>
   <link href="http://kobe9009.github.io/blog/categories/personal/atom.xml" rel="self"/>
   <link href="http://kobe9009.github.io/"/>
-  <updated>2014-02-27T01:15:26+08:00</updated>
+  <updated>2014-02-27T02:31:43+08:00</updated>
   <id>http://kobe9009.github.io/</id>
   <author>
     <name><![CDATA[Bryan]]></name>
@@ -18,7 +18,23 @@
     <link href="http://kobe9009.github.io/blog/2014/02/26/first-post/"/>
     <updated>2014-02-26T15:14:16+08:00</updated>
     <id>http://kobe9009.github.io/blog/2014/02/26/first-post</id>
-    <content type="html"><![CDATA[<h1>开篇</h1>
+    <content type="html"><![CDATA[<h2>折腾Octopress</h2>
+
+<hr />
+
+<p>折腾了许久的Blog终于上线了，参考的无数的文章，但是这里要重点推荐这篇&mdash;<a href="http://williamherry.com/blog/2012/07/20/octopress-setup/">《Octopress &ndash; 像黑客一样写博客》</a>，很清晰的介绍了Octopress的工作模式，以及多电脑的部署。</p>
+
+<p>主要困惑点在于&mdash;两个看似相同的git仓库嵌套着工作，理解其中原理后，一切就很清晰和简单。</p>
+
+<p>后期的工作就是写写blog，修改修改UI，<strong>没有美感的程序猿怎么去做客户端！</strong></p>
+
+<h2>写在转行两年</h2>
+
+<hr />
+
+<p>转眼发现自己已经转行两年，由一个三年的<strong>Sales</strong>突然变身成一个<strong>iOS程序猿</strong>确实跨度有些大。</p>
+
+<p>但是既然现在身为一个程序猿，那么有必要开始对自己的一些知识点做个总结，对一些技巧做一些分享，对一些问题做一些讨论，所以建下这个blog，希望对自己对同行们都有一些帮助</p>
 ]]></content>
   </entry>
   
