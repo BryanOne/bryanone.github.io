@@ -4,7 +4,7 @@
   <title><![CDATA[Bryan's Blog]]></title>
   <link href="http://kobe9009.github.io/atom.xml" rel="self"/>
   <link href="http://kobe9009.github.io/"/>
-  <updated>2014-03-01T23:23:28+08:00</updated>
+  <updated>2014-03-02T02:25:12+08:00</updated>
   <id>http://kobe9009.github.io/</id>
   <author>
     <name><![CDATA[Bryan Wang]]></name>
@@ -14,11 +14,23 @@
 
   
   <entry>
-    <title type="html"><![CDATA[Jie Jue Octopressxuan Zhuang Greyshadezhu Ti Disqusshi Xiao De Wen Ti Shen Ru Liao Jie Jekyllmo Ban]]></title>
-    <link href="http://kobe9009.github.io/blog/2014/03/01/jie-jue-octopressxuan-zhuang-greyshadezhu-ti-disqusshi-xiao-de-wen-ti-shen-ru-liao-jie-jekyllmo-ban/"/>
+    <title type="html"><![CDATA[Problem With Greyshade]]></title>
+    <link href="http://kobe9009.github.io/blog/2014/03/01/problem-with-greyshade/"/>
     <updated>2014-03-01T00:00:00+08:00</updated>
-    <id>http://kobe9009.github.io/blog/2014/03/01/jie-jue-octopressxuan-zhuang-greyshadezhu-ti-disqusshi-xiao-de-wen-ti-shen-ru-liao-jie-jekyllmo-ban</id>
-    <content type="html"><![CDATA[
+    <id>http://kobe9009.github.io/blog/2014/03/01/problem-with-greyshade</id>
+    <content type="html"><![CDATA[<h1>问题描述</h1>
+
+<hr />
+
+<p>在寻找漂亮的Octopress主题的时候，发现了一个不错的theme &ndash; <a href="https://github.com/shashankmehta/greyshade" title="Github地址">Greyshade</a>，按照Github页面上的提示进行安装：</p>
+
+<pre><code>$ git clone git@github.com:shashankmehta/greyshade.git .themes/greyshade
+$ echo "\$greyshade: color;" &gt;&gt; sass/custom/_colors.scss //Substitue 'color' with your highlight color
+$ rake "install[greyshade]"
+$ rake generate
+</code></pre>
+
+<p>preview了下，发现Disqus的comment功能不见了，下面开始解决问题。</p>
 ]]></content>
   </entry>
   
