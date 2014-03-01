@@ -10,6 +10,16 @@
 	</script>
 	{% endif %}
 </div>
+<div class="profile-name">
+{% if site.author %}
+{{ site.author }}
+{% endif %}
+</div>
+<div class="profile-subtitle">
+{% if site.subtitle %}
+{{ site.subtitle }}
+{% endif %}
+</div>
 {% include custom/header.html %}
 <nav id="main-nav">{% include navigation.html %}</nav>
 <nav id="sub-nav">
