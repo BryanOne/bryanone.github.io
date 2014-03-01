@@ -4,7 +4,7 @@
   <title><![CDATA[Category: web | Bryan's Blog]]></title>
   <link href="http://kobe9009.github.io/blog/categories/web/atom.xml" rel="self"/>
   <link href="http://kobe9009.github.io/"/>
-  <updated>2014-03-02T02:40:43+08:00</updated>
+  <updated>2014-03-02T03:21:00+08:00</updated>
   <id>http://kobe9009.github.io/</id>
   <author>
     <name><![CDATA[Bryan Wang]]></name>
@@ -29,6 +29,84 @@ $ rake generate
 </code></pre>
 
 <p>preview了下，发现Disqus的comment功能不见了，下面开始解决问题。</p>
+
+<h2>Jekyll模板结构</h2>
+
+<p>下面的内容是我对Jekyll结构的理解，当我们新建一个模板，下面主要有下面几个文件和目录：</p>
+
+<pre><code>_config.yml
+</code></pre>
+
+<p>全局的配置文件，可以控制一些plugin的开关，比如Disqus，github，google+等</p>
+
+<pre><code>sass/
+</code></pre>
+
+<p>里面是一堆的scss文件，负责页面UI区域规划，显示的颜色，文字排版等</p>
+
+<pre><code>source/
+</code></pre>
+
+<p>出去sass干的，剩下的比如页面内容的组织，逻辑等就是由这个控制</p>
+
+<pre><code>source/_posts
+</code></pre>
+
+<p>其中这个文件夹存放的就是blog的source，blog的内容在这里面用编辑器编辑即可。</p>
+
+<h2>解决Disqus无法工作的问题</h2>
+
+<p>首先查看了问题页面的源码，负责comment模块的代码如下</p>
+
+<pre><code>&lt;section id="comment"&gt;
+&lt;h1 class="title"&gt;Comments&lt;/h1&gt;
+&lt;div id="disqus_thread" aria-live="polite"&gt;&lt;noscript&gt;Please enable JavaScript to view the &lt;a href="http://disqus.com/?ref_noscript"&gt;comments powered by Disqus.&lt;/a&gt;&lt;/noscript&gt;
+&lt;/div&gt;
+&lt;/section&gt;
+</code></pre>
+
+<p>这里没有执行任何的逻辑调用，查看了下这段代码位于/<em>includes/post/disqus_thread.html中，而真正的需要的代码位于/</em>includes/disqus.html中，这样问题就看disqus原来在哪里调用即可
+查看完，发现原来的classic theme是把disqus调用放在after_footer.html中，这个在新主题内没有被任何文件调用，查看文件修改记录，在_layouts/default.html中line 19加入代码</p>
+
+<pre><code>
+
+<script type="text/javascript">
+      var disqus_shortname = 'bryanwong';
+      
+        
+        var disqus_script = 'count.js';
+      
+    (function () {
+      var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+      dsq.src = 'http://' + disqus_shortname + '.disqus.com/' + disqus_script;
+      (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+    }());
+</script>
+
+
+
+
+
+
+
+  <script type="text/javascript">
+    (function(){
+      var twitterWidgets = document.createElement('script');
+      twitterWidgets.type = 'text/javascript';
+      twitterWidgets.async = true;
+      twitterWidgets.src = '//platform.twitter.com/widgets.js';
+      document.getElementsByTagName('head')[0].appendChild(twitterWidgets);
+    })();
+  </script>
+
+
+
+
+</code></pre>
+
+<p>问题解决</p>
+
+<p>PS：解决这个问题也让自己进一步熟悉了页面组织结构，后面有时间可以尝试调出自己风格的页面出来</p>
 ]]></content>
   </entry>
   
