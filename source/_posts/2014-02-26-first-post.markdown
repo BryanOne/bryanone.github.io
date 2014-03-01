@@ -5,8 +5,8 @@ date: 2014-02-26 15:14:16 +0800
 comments: true
 categories: 个人随笔
 ---
+
 ## 折腾Octopress
----
 
 折腾了许久的Blog终于上线了，参考的无数的文章，但是这里要重点推荐这篇--[《Octopress - 像黑客一样写博客》](http://williamherry.com/blog/2012/07/20/octopress-setup/)，很清晰的介绍了Octopress的工作模式，以及多电脑的部署。
 
@@ -15,7 +15,6 @@ categories: 个人随笔
 后期的工作就是写写blog，修改修改UI，**没有美感的程序猿怎么去做客户端！**
 
 ## 写在转行两年
----
 
 转眼发现自己已经转行两年，由一个三年的**Sales**突然变身成一个**iOS程序猿**确实跨度有些大。
 
