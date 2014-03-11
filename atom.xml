@@ -4,7 +4,7 @@
   <title><![CDATA[Bryan's Blog]]></title>
   <link href="http://kobe9009.github.io/atom.xml" rel="self"/>
   <link href="http://kobe9009.github.io/"/>
-  <updated>2014-03-12T01:30:07+08:00</updated>
+  <updated>2014-03-12T01:42:32+08:00</updated>
   <id>http://kobe9009.github.io/</id>
   <author>
     <name><![CDATA[Bryan Wang]]></name>
@@ -12,6 +12,25 @@
   </author>
   <generator uri="http://octopress.org/">Octopress</generator>
 
+  
+  <entry>
+    <title type="html"><![CDATA[关于iOS7.1对Viewcontroller layout的一个改动]]></title>
+    <link href="http://kobe9009.github.io/blog/2014/03/12/guan-yu-ios7-dot-1dui-viewcontroller-layoutde-%5B%3F%5D-ge-gai-dong/"/>
+    <updated>2014-03-12T01:33:33+08:00</updated>
+    <id>http://kobe9009.github.io/blog/2014/03/12/guan-yu-ios7-dot-1dui-viewcontroller-layoutde-[?]-ge-gai-dong</id>
+    <content type="html"><![CDATA[<h1>前言</h1>
+
+<p>今天iOS7.1正式发布，更新完后突然发现我们的应用基本所有的页面都出现了UI的错位，立即着手寻找bug</p>
+
+<h2>问题点</h2>
+
+<p>寻找问题的过程这里不进行阐述了，直接通报结果，iOS7.1在页面布局中增加了一个逻辑，如果navigationBar的背景是不透明的，那么所有这个导航栏对应的UIViewController的View origin-X 会变成64，</p>
+
+<p>如果导航栏背景有透明，那么还是全屏布局！</p>
+
+<p><strong>吐槽：这样的改动没有出现在apple的API diff中！也没有出现在release note中！这是在坑爹！</strong></p>
+]]></content>
+  </entry>
   
   <entry>
     <title type="html"><![CDATA[深入了解@dynamic]]></title>

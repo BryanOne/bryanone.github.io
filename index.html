@@ -9,7 +9,7 @@
 	<meta name="author" content="Bryan Wang">
 
 	
-	<meta name="description" content="Mar 6th, 2014 OC Comments 深入了解@dynamic 前言 最近在看一些牛x的开源库，看到了一个@dynamic用法，让自己深入的了解了下这个关键字，下面和大家分享一下 思考问题 一个class的categroy能添加property么？ &hellip;">
+	<meta name="description" content="Mar 12th, 2014 Comments 关于iOS7.1对Viewcontroller Layout的一个改动 前言 今天iOS7.1正式发布，更新完后突然发现我们的应用基本所有的页面都出现了UI的错位，立即着手寻找bug 问题点 寻找问题的过程这里不进行阐述了，直接通报结果，iOS7. &hellip;">
 	
 
   <!-- http://t.co/dKP3o1e -->
@@ -96,6 +96,48 @@ Focus on iOS Dev
 			<div class="mid-col-container">
 				<div id="content" class="inner">
 <div itemscope itemtype="http://schema.org/Blog">
+
+
+    <article class="post" itemprop="blogPost" itemscope itemtype="http://schema.org/BlogPosting">
+	<div class="meta">
+		<div class="date">
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2014-03-12T01:33:33+08:00" data-updated="true" itemprop="datePublished">Mar 12<span>th</span>, 2014</time></div>
+		<div class="tags">
+
+</div>
+		
+			<span class="comments"><a href="/blog/2014/03/12/guan-yu-ios7-dot-1dui-viewcontroller-layoutde-%5B%3F%5D-ge-gai-dong/#disqus_thread">Comments</a></span>
+		
+	</div>
+	<h1 class="title" itemprop="name"><a href="/blog/2014/03/12/guan-yu-ios7-dot-1dui-viewcontroller-layoutde-%5B%3F%5D-ge-gai-dong/" itemprop="url">关于iOS7.1对Viewcontroller Layout的一个改动</a></h1>
+	<div class="entry-content" itemprop="articleBody">
+		<h1>前言</h1>
+
+<p>今天iOS7.1正式发布，更新完后突然发现我们的应用基本所有的页面都出现了UI的错位，立即着手寻找bug</p>
+
+<h2>问题点</h2>
+
+<p>寻找问题的过程这里不进行阐述了，直接通报结果，iOS7.1在页面布局中增加了一个逻辑，如果navigationBar的背景是不透明的，那么所有这个导航栏对应的UIViewController的View origin-X 会变成64，</p>
+
+<p>如果导航栏背景有透明，那么还是全屏布局！</p>
+
+<p><strong>吐槽：这样的改动没有出现在apple的API diff中！也没有出现在release note中！这是在坑爹！</strong></p>
+
+		
+		
+	</div>
+</article>
 
 
     <article class="post" itemprop="blogPost" itemscope itemtype="http://schema.org/BlogPosting">
