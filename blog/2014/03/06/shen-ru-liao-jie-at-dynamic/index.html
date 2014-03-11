@@ -5,11 +5,11 @@
 
 <head>
 	<meta charset="utf-8">
-	<title>Categories - Bryan's Blog</title>
+	<title>深入了解@dynamic - Bryan's Blog</title>
 	<meta name="author" content="Bryan Wang">
 
 	
-	<meta name="description" content=" 个人随笔 [ 1 ] Greyshade [ 1 ] Octopress [ 1 ] Web [ 1 ] Oc [ 1 ] ">
+	<meta name="description" content="深入了解@dynamic 前言 最近在看一些牛x的开源库，看到了一个@dynamic用法，让自己深入的了解了下这个关键字，下面和大家分享一下 思考问题 一个class的categroy能添加property么？ 这个问题可能不少人在面试的时候会遇到，这里我们先放下，分析完@ &hellip;">
 	
 
   <!-- http://t.co/dKP3o1e -->
@@ -19,7 +19,7 @@
 
 	<link href="/atom.xml" rel="alternate" title="Bryan's Blog" type="application/atom+xml">
 	
-	<link rel="canonical" href="http://kobe9009.github.io/blog/categories/">
+	<link rel="canonical" href="http://kobe9009.github.io/blog/2014/03/06/shen-ru-liao-jie-at-dynamic/">
 	<link href="/favicon.png" rel="shortcut icon">
 	<link href="/stylesheets/screen.css" media="screen, projection" rel="stylesheet" type="text/css">
 	<link href="/stylesheets/font-awesome.min.css" media="screen, projection" rel="stylesheet" type="text/css">
@@ -94,26 +94,63 @@ Focus on iOS Dev
 				
 			
 			<div class="mid-col-container">
-				<div id="content" class="inner"><article class="page">
-    
-    <h1 class="title">Categories</h1>
-    
-    <div class="entry-content"><ul>
+				<div id="content" class="inner"><article class="post" itemscope itemtype="http://schema.org/BlogPosting">
+	<h1 class="title" itemprop="name">深入了解@dynamic</h1>
+	<div class="entry-content" itemprop="articleBody"><h1>前言</h1>
 
-    <li><a href="/blog/categories/个人随笔/">个人随笔</a> [ 1 ]</li>
+<p> 最近在看一些牛x的开源库，看到了一个@dynamic用法，让自己深入的了解了下这个关键字，下面和大家分享一下</p>
 
-    <li><a href="/blog/categories/Greyshade/">Greyshade</a> [ 1 ]</li>
+<h2>思考问题</h2>
 
-    <li><a href="/blog/categories/Octopress/">Octopress</a> [ 1 ]</li>
+<p> 一个class的categroy能添加property么？</p>
 
-    <li><a href="/blog/categories/web/">Web</a> [ 1 ]</li>
+<p> 这个问题可能不少人在面试的时候会遇到，这里我们先放下，分析完@dynamic后再来解答</p>
 
-    <li><a href="/blog/categories/OC/">Oc</a> [ 1 ]</li>
+<h2>@dynamic用来做什么的？</h2>
 
-</ul>
+<p> <strong>@dynamic</strong>和<strong>@synthesize</strong>是在class implementation时告诉编译器如何处理对应的property：</p>
 
+<p> *@synthesize：会自动根据property的attribute生成对应的getter、setter，在class 的propertylist中加入这个property的信息，并且在class的 ivar list中加入了对应的成员变量，xcode4开始编译器会默认使用@synthesize对声明的property进行处理，并自动生成 _propertyName 这样的ivar</p>
+
+<p> *@dynamic：和<strong>@synthesize</strong>完全相反，它告诉编译器不对这个property进行任何的操作，在IDE中我们可以正常对property进行访问，但是如果要在app运行时不会出问题，我们需要手动合成对应的getter和setter方法，可以是自己写，可以通过消息转发来动态实现</p>
+
+<h2>说了这么多，来举个例子：</h2>
+
+<pre><code>@interface NSObject (dynamic)
+
+@property (nonatomic, strong) NSObject *object;
+
+@end
+
+static char propertyName;
+
+@implementation NSObject (dynamic)
+
+@dynamic object;
+
+- (void)setObject:(NSObject *)object {
+    objc_setAssociatedObject(self, &amp;propertyName, object, OBJC_ASSOCIATION_RETAIN_NONATOMIC);
+}
+
+- (NSObject *)object {
+    return objc_getAssociatedObject(self, &amp;propertyName);
+}
+
+@end
+</code></pre>
+
+<p> 这样是不是我们刚才思考的问题的答案已经很了然，这里的例子是手动合成方法给分类添加伪属性，因为这样的属性并不能通过class的property list中获取。</p>
 </div>
 </article>
+
+	<h1>
+	本站所有文章若无特殊说明皆为原创，转载请保持链接，谢谢 
+</h1>
+
+<div class="share">
+	<a rel="license" href="http://creativecommons.org/licenses/by-nc-nd/3.0/"><img alt="知识共享许可协议" style="border-width:10" src="http://i.creativecommons.org/l/by-nc-nd/3.0/88x31.png" /></a><br />本作品采用<a rel="license" href="http://creativecommons.org/licenses/by-nc-nd/3.0/">知识共享署名-非商业性使用-禁止演绎 3.0 未本地化版本许可协议</a>进行许可。
+</div>
+
 
 
 <section id="comment">
@@ -121,7 +158,6 @@ Focus on iOS Dev
     <div id="disqus_thread" aria-live="polite"><noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
 </div>
 </section>
-
 </div>
 			</div>
 			<footer id="footer" class="inner">Copyright &copy; 2014
@@ -140,8 +176,8 @@ Design credit: <a href="http://shashankmehta.in/archive/2012/greyshade.html">Sha
       
         
         // var disqus_developer = 1;
-        var disqus_identifier = 'http://kobe9009.github.io/blog/categories/index.html';
-        var disqus_url = 'http://kobe9009.github.io/blog/categories/index.html';
+        var disqus_identifier = 'http://kobe9009.github.io/blog/2014/03/06/shen-ru-liao-jie-at-dynamic/';
+        var disqus_url = 'http://kobe9009.github.io/blog/2014/03/06/shen-ru-liao-jie-at-dynamic/';
         var disqus_script = 'embed.js';
       
     (function () {
