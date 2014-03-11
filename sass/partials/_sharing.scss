@@ -1,4 +1,7 @@
 .sharing {
+	.content {
+		font-size: 1.2em;
+	}
   p.meta + & {
     padding: { top: 1em; left: 0; }
     background: $img-border top left repeat-x;
